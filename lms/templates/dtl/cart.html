@@ -1,0 +1,22 @@
+{% extends "partials/base.html" %}
+
+{% block title %}
+My Cart
+{% endblock title %}
+
+{% block body %}
+    {% include "partials/header.html" %}
+    
+    <h2>My name is {{ user }}</h2>
+    <ol>
+    {% for item in cart_items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    </ol>
+    {% if is_favourite %}
+        <p>item marked as favourite</p>
+    {% else %}
+        <p>item not marked as favourite</p>
+    {% endif %}
+    <p>you have {{ no_of_items_in_cart }} in your cart</p>
+{% endblock body %}
