@@ -1,0 +1,50 @@
+ol {
+    list-style: none; /* Remove default numbering */
+    counter-reset: list-counter;
+    padding: 10px;
+    max-width: 300px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+ol li {
+    counter-increment: list-counter;
+    position: relative;
+    font-size: 18px;
+    padding: 10px 10px 10px 40px;
+    margin: 6px 0;
+    background: #ffffff;
+    border-radius: 6px;
+    transition: 0.3s;
+    color: #333;
+    font-weight: 600;
+}
+
+ol li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #007bff;
+    color: white;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+ol li:hover {
+    background: #007bff;
+    color: white;
+    transform: translateX(5px);
+}
+
+ol li:hover::before {
+    background: #0056b3;
+}
