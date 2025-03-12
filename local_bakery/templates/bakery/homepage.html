@@ -1,0 +1,24 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block title %}Wawm Welcome{% endblock title %}
+
+{% block content %}
+    <section class="home-section">
+        <h1>Welcome to Our Bakery</h1>
+        <p>Explore our delicious menu of fresh bakery items!</p>
+        <a href="{% url 'local_bakery:menu' %}" class="btn">Explore Menu</a>
+    </section>
+    <div id="newsletter-popup" class="popup">
+        <div class="popup-content">
+            <h2>Sign up for our Newsletter</h2>
+            <form action="{% url 'local_bakery:subscribe' %}" method="POST">
+                {% csrf_token %}
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <button id="close-popup">Close</button>
+        </div>> 
+
+   <script src="{% static 'js/java.js' %}"></script>
+
+{% endblock content %}
