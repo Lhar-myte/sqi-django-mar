@@ -1,0 +1,11 @@
+@@ -0,0 +1,10 @@
+{% extends "partials/base.html" %}
+
+{% block title %}{{ author.first_name }} {{ author.last_name }}{% endblock title %}
+
+{% block body %}
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+
+    <p>{{ author.birth_date }}</p>
+
+{% endblock body %}

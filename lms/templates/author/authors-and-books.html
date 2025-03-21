@@ -1,0 +1,71 @@
+{% extends "partials/base.html" %}
+ 
+ {% block title %}Authors and Books{% endblock title %}
+ 
+ 
+ {% block body %}
+ <h3>All Authors</h3>
+ <ul>
+ {% for author in all_authors %}
+     <li><a href="{% url 'authors:author_detail' author.id %}">{{author }}</a></li>  
+     {% for book in author.books.all %}
+     <p>{{ book }}</p>
+     {% endfor %}
+ {% endfor %}
+ </ul>
+ 
+ <h3>All Books</h3>
+ <ul>
+ {% for book in books %}
+     <li>{{ book.title }} by {{ book.author.first_name }}</li>
+ {% endfor %}
+ </ul>
+ 
+ <h3>Authors ordered By Birth Date</h3>
+ <ul>
+ {% for author in authors_by_birth_date %}
+     <li>{{ author }} - {{ author.birth_date }}</li>
+ {% endfor %}
+ </ul>
+ 
+ <h3>Author with ID of 1</h3>
+ {% if not author_with_id_1 %}
+ <p>Author with ID 1 does not exist</p>
+ {% else %}
+ <h5>{{ author_with_id_1 }}</h5>
+ {% endif %}
+ 
+ 
+ <h3>Books by Agatha</h3>
+ {% for book in books_by_agatha %}
+     <p>{{ book }}</p>
+ {% endfor %}
+ 
+ <h3>All Authors Except Winnie</h3>
+ <ul>
+     {% for author in authors_not_winnie %}
+         <li>{{ author }}</li>
+     {% endfor %}
+ </ul>
+ 
+ <h3>Books not by Agatha</h3>
+ <ul>
+     {% for book in books_not_by_agatha %}
+         <li>{{ book }}</li>
+     {% endfor %}
+ </ul>
+ 
+ <h3>Authors born before 2000</h3>
+ <ul>
+ {% for author in authors_born_before_2000 %}
+     <li>{{ author }}</li>
+ {% endfor %}
+ </ul>
+ 
+ <h3>Authors born in 2002</h3>
+ <ul>
+ {% for author in authors_born_in_2002 %}
+     <li>{{ author }}</li>
+ {% endfor %}
+ </ul>
+ {% endblock body %}

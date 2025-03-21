@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>my Recipe</title>
+</head>
+<body>
+   <ul>
+   {% for recipe in list_of_recipes  %}
+        <li>
+           <a href="{% url 'recipe_app:recipe_details' recipe.id %}"> {{ recipe }}</a>
+        </li>
+   {% endfor %}
+   </ul>
+</body>
+</html>

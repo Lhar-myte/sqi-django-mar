@@ -1,0 +1,11 @@
+{% extends "partials/base.html" %}
+{% block title %}Department{% endblock title %}
+{% block body %}
+    <ul>
+    {% for dpt in departments %}
+        <li>
+            {{ dpt }}        
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock body %}
