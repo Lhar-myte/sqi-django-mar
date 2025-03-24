@@ -1,0 +1,191 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Book List */
+.book-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.book-list li {
+    background: #3498db;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.book-list a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Book Details */
+.book-details h1 {
+    color: #2c3e50;
+}
+
+.book-details p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Reviews */
+.review {
+    background: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.review strong {
+    color: #2c3e50;
+}
+
+/* Form */
+form {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background: #2c3e50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+form button:hover {
+    background: #1a252f;
+}
+
+
+
+
+
+
+
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container.book-list {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Book List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #ecf0f1;
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Book Links */
+ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #2980b9;
+    transition: color 0.3s ease-in-out;
+}
+
+ul li:hover {
+    background: #d5e8f6;
+}
+
+ul li a:hover {
+    color: #1c5985;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container.book-list {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    ul li a {
+        font-size: 16px;
+    }
+}

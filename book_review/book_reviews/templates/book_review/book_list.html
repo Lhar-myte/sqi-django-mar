@@ -1,0 +1,20 @@
+{% extends "partials/base.html" %}
+{% load static %}
+    {% block title %}
+    Book List
+    {% endblock title %}
+    
+{% block body %}
+    {% include 'partials/header.html' %}
+
+    <div class="container book-list">
+        <h2>Book List</h2>
+        <ul>
+            {% for book in book_list %}
+                <li><a href="{% url 'books:book_details' book.id %}">{{ book.title }} by {{ book.author }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% include 'partials/footer.html' %}
+{% endblock body %}
