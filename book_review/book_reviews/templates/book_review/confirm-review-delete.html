@@ -1,0 +1,17 @@
+{% extends "partials/base.html" %}
+ 
+ {% block title %}Confirm Delete {{ review.book.title }}{% endblock title %}
+ 
+ 
+ {% block body %}
+ 
+     <div>
+         <div>Are you sure you want to delete "{{ review.book.title }}"?</div>
+         <form action="{% url 'books:delete_review' review.id %}" method="POST">
+             {% csrf_token %}
+             <button type="submit">Yes, I'm sure</button>
+         </form>
+         <a href="{% url 'books:book_details' review.book.id %}">No, take me back</a>
+     </div>
+ 
+ {% endblock body %}

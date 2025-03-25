@@ -7,15 +7,22 @@
 
     <div class="container book-details">
         <h1>{{ book.title }}</h1>
+        
         <p><strong>Author:</strong> {{ book.author }}</p>
         <p><strong>Published on:</strong> {{ book.publication_date }}</p>
-
+       {% if book.cover_image %}
+            <img width=100, height=100 src="{{ book.cover_image.url }}" alt="{{ book.title }} image">
+       
+       {% endif %}
         <h2>Reviews</h2>
         {% for review in reviews %}
             <div class="review">
                 <p><strong>{{ review.reviewer_name }}</strong> ({{ review.created_at }}):</p>
                 <p>Rating: <strong>{{ review.rating }}/5</strong></p>
                 <p>{{ review.comment }}</p>
+                <a href="{% url 'books:update_review_with_model_form' review.id %}">Edit with ModelForm</a>
+                <a href="{% url 'books:confirm_delete_review' review.id %}">Delete</a>
+
             </div>
         {% empty %}
             <p>No reviews yet.</p>
@@ -28,7 +35,6 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-
     {% include 'partials/footer.html' %}
 {% endblock body %}
 

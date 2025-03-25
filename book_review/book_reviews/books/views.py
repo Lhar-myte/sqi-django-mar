@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ReviewForm, ReviewManualForm
+from django.urls import reverse
+from .forms import ReviewForm, ReviewManualForm, UpdateReviewForm
 from .models import Book, Review
 
 def book_list(request):
@@ -52,3 +53,43 @@ def django_manual_form(request, book_id):
         'reviews': book.reviews.all()
     }
     return render(request,'book_review/django_manual_form.html', context)
+
+
+
+
+def update_review_with_model_form(request, review_id):
+    review = get_object_or_404(Review, id=review_id)
+    form = UpdateReviewForm(instance=review)
+
+    if request.method == 'POST':
+        form = UpdateReviewForm(request.POST, request.FILES, instance=review)
+        if form.is_valid():
+            form.save()
+
+            return redirect(reverse('books:book_details',kwargs={'book_id': review.book.id}))
+           
+    context = {
+        "form": form,
+        "review": review,
+    }
+    return render(request, "book_review/update_review_with_model_form.html", context)
+
+
+def confirm_delete_review(request, review_id):
+
+    review = get_object_or_404(Review, id=review_id)
+    return render(request, "book_review/confirm-review-delete.html", {'review': review})
+
+
+
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id )
+    if request.method == 'POST':
+        review.delete()
+        return redirect("books:book_list")
+    
+    
+    return redirect(reverse('books:book_details',kwargs={'book_id': review.book.id}))
+
+
+

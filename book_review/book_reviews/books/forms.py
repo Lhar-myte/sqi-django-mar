@@ -14,6 +14,10 @@ class ReviewManualForm(forms.Form):
     comment = forms.CharField(widget=forms.Textarea())
 
 
-
+class UpdateReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['rating', 'comment',]
+        
 
        
